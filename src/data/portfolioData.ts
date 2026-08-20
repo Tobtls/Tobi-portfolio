@@ -5,7 +5,7 @@ export const authorInfo = {
   role: 'UX Writer & Content Designer',
   email: 'lawalsonsamuel@gmail.com',
   headerTag: 'UX WRITING PORTFOLIO',
-  title: 'UX Writing Portfolio Samples',
+  title: 'UX Writing Portfolio',
   heroSubtitle: 'Three case studies demonstrating product thinking, clear microcopy, and a humane voice.',
   positioning: 'I write product content that helps people understand what is happening, decide what to do next, and recover gracefully when things go wrong. My process pairs user needs with business goals, content standards, and a testable measurement plan.',
   bio: 'Specializing in high-stakes product moments, complex SaaS onboarding, and ethical retention flows. Designing content systems where words act as deliberate user interface components.',

@@ -41,7 +41,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToCaseStudy }) => {
           </p>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-stone-900 leading-[1.08] mb-6">
             UX Writing <br className="hidden sm:inline" />
-            <span className="text-stone-700 font-serif italic font-normal">Portfolio Samples</span>
+            <span className="text-stone-700 font-serif italic font-normal">Portfolio</span>
           </h1>
           <p className="text-lg sm:text-xl text-stone-600 font-normal leading-relaxed max-w-2xl mb-10">
             {authorInfo.heroSubtitle}
