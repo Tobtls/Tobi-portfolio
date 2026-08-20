@@ -1,0 +1,6 @@
+{
+  "name": "Tobi Lawalson - UX Writing Portfolio",
+  "description": "A single-page UX writing portfolio featuring case studies in fintech error recovery, B2B onboarding, and respectful subscription cancellation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
