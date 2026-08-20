@@ -6,10 +6,9 @@ interface HeaderProps {
   viewMode: 'rich' | 'document' | 'interactive';
   setViewMode: (mode: 'rich' | 'document' | 'interactive') => void;
   onOpenContact: () => void;
-  avatarUrl?: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ viewMode, setViewMode, onOpenContact, avatarUrl }) => {
+export const Header: React.FC<HeaderProps> = ({ viewMode, setViewMode, onOpenContact }) => {
   const [copied, setCopied] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -52,9 +51,9 @@ export const Header: React.FC<HeaderProps> = ({ viewMode, setViewMode, onOpenCon
             href="#"
             className="group flex items-center gap-3 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-stone-800 rounded-lg p-1 -ml-1 transition-colors"
           >
-            {(avatarUrl || authorInfo.avatar) && (
+            {authorInfo.avatar && (
               <img
-                src={avatarUrl || authorInfo.avatar}
+                src={authorInfo.avatar}
                 alt={authorInfo.name}
                 referrerPolicy="no-referrer"
                 className="w-9 h-9 rounded-full object-cover border border-stone-300 group-hover:border-amber-500 shadow-2xs transition-colors"

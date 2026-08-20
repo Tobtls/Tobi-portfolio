@@ -9,7 +9,7 @@ export const authorInfo = {
   heroSubtitle: 'Three case studies demonstrating product thinking, clear microcopy, and a humane voice.',
   positioning: 'I write product content that helps people understand what is happening, decide what to do next, and recover gracefully when things go wrong. My process pairs user needs with business goals, content standards, and testable metrics.',
   bio: 'Specializing in high-stakes product moments, complex SaaS onboarding, and ethical retention flows. Designing content systems where words act as deliberate user interface components.',
-  avatar: '/src/assets/images/tobi_profile_1787229166053.jpg',
+  avatar: '/src/assets/images/tobi_profile_1787229166053.jpeg',
 };
 
 export const pillars: Pillar[] = [
