@@ -37,22 +37,22 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToCaseStudy }) => {
         {/* Author & Main Title Block */}
         <div className="max-w-4xl">
           {/* Author Badge with Clean Portrait Image */}
-          <div className="flex items-center gap-3 sm:gap-4 mb-4">
-            <div className="relative">
+          <div className="flex items-center gap-3 sm:gap-4 mb-5">
+            <div className="relative shrink-0">
               <img
                 src={authorInfo.avatar}
                 alt={authorInfo.name}
                 referrerPolicy="no-referrer"
-                className="w-13 h-13 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-white shadow-sm ring-2 ring-stone-300 transition-all"
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover object-[center_20%] aspect-square border-2 border-white shadow-sm ring-2 ring-stone-300"
               />
               <span
-                className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white"
+                className="absolute bottom-0 right-0 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white shadow-xs"
                 title="Available for UX writing projects"
               ></span>
             </div>
 
-            <div>
-              <div className="flex items-center gap-2">
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 <span className="text-stone-900 font-mono text-sm sm:text-base font-semibold tracking-tight">
                   [{authorInfo.name}]
                 </span>
@@ -60,7 +60,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToCaseStudy }) => {
                   {authorInfo.role}
                 </span>
               </div>
-              <p className="text-xs text-stone-500 font-sans mt-0.5">
+              <p className="text-xs text-stone-500 font-sans mt-0.5 line-clamp-1 sm:line-clamp-none">
                 Product Microcopy • Onboarding Systems • Ethical Retention
               </p>
             </div>

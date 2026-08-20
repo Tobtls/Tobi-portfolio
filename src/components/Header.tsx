@@ -56,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({ viewMode, setViewMode, onOpenCon
                 src={authorInfo.avatar}
                 alt={authorInfo.name}
                 referrerPolicy="no-referrer"
-                className="w-9 h-9 rounded-full object-cover border border-stone-300 group-hover:border-amber-500 shadow-2xs transition-colors"
+                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover object-[center_20%] shrink-0 aspect-square border border-stone-300 group-hover:border-amber-500 shadow-2xs transition-colors"
               />
             )}
             <div className="flex flex-col">
