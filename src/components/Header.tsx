@@ -6,9 +6,10 @@ interface HeaderProps {
   viewMode: 'rich' | 'document' | 'interactive';
   setViewMode: (mode: 'rich' | 'document' | 'interactive') => void;
   onOpenContact: () => void;
+  avatarUrl?: string;
 }
 
-export const Header: React.FC<HeaderProps> = ({ viewMode, setViewMode, onOpenContact }) => {
+export const Header: React.FC<HeaderProps> = ({ viewMode, setViewMode, onOpenContact, avatarUrl }) => {
   const [copied, setCopied] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,15 +50,25 @@ export const Header: React.FC<HeaderProps> = ({ viewMode, setViewMode, onOpenCon
           {/* Brand / Name */}
           <a
             href="#"
-            className="group flex flex-col focus:outline-hidden focus-visible:ring-2 focus-visible:ring-stone-800 rounded-sm"
+            className="group flex items-center gap-3 focus:outline-hidden focus-visible:ring-2 focus-visible:ring-stone-800 rounded-lg p-1 -ml-1 transition-colors"
           >
-            <span className="font-semibold tracking-tight text-base sm:text-lg text-stone-900 group-hover:text-amber-900 transition-colors flex items-center gap-2">
-              <span className="inline-block w-2 h-2 rounded-full bg-emerald-600"></span>
-              {authorInfo.name}
-            </span>
-            <span className="text-xs font-mono tracking-wider text-stone-500 uppercase">
-              {authorInfo.role}
-            </span>
+            {(avatarUrl || authorInfo.avatar) && (
+              <img
+                src={avatarUrl || authorInfo.avatar}
+                alt={authorInfo.name}
+                referrerPolicy="no-referrer"
+                className="w-9 h-9 rounded-full object-cover border border-stone-300 group-hover:border-amber-500 shadow-2xs transition-colors"
+              />
+            )}
+            <div className="flex flex-col">
+              <span className="font-semibold tracking-tight text-sm sm:text-base text-stone-900 group-hover:text-amber-900 transition-colors flex items-center gap-1.5">
+                <span className="inline-block w-2 h-2 rounded-full bg-emerald-600"></span>
+                {authorInfo.name}
+              </span>
+              <span className="text-[11px] font-mono tracking-wider text-stone-500 uppercase">
+                {authorInfo.role}
+              </span>
+            </div>
           </a>
 
           {/* Desktop Navigation Links */}

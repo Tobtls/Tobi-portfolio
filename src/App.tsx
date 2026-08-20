@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CaseStudySection } from './components/CaseStudySection';
@@ -6,12 +6,31 @@ import { InteractiveCopyLab } from './components/InteractiveCopyLab';
 import { PrinciplesSection } from './components/PrinciplesSection';
 import { Footer } from './components/Footer';
 import { ContactModal } from './components/ContactModal';
-import { caseStudies } from './data/portfolioData';
+import { caseStudies, authorInfo } from './data/portfolioData';
+
+const AVATAR_STORAGE_KEY = 'tobi_portfolio_avatar_custom';
 
 export default function App() {
   const [viewMode, setViewMode] = useState<'rich' | 'document' | 'interactive'>('rich');
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [avatarUrl, setAvatarUrl] = useState<string>(() => {
+    return localStorage.getItem(AVATAR_STORAGE_KEY) || authorInfo.avatar || '';
+  });
+
+  const handleAvatarChange = (newUrl: string) => {
+    setAvatarUrl(newUrl);
+    try {
+      localStorage.setItem(AVATAR_STORAGE_KEY, newUrl);
+    } catch (e) {
+      console.warn('Could not save avatar to localStorage:', e);
+    }
+  };
+
+  const handleResetAvatar = () => {
+    localStorage.removeItem(AVATAR_STORAGE_KEY);
+    setAvatarUrl(authorInfo.avatar || '');
+  };
 
   const filteredCaseStudies = activeFilter === 'all'
     ? caseStudies
@@ -33,12 +52,18 @@ export default function App() {
       <Header
         viewMode={viewMode}
         setViewMode={setViewMode}
+        avatarUrl={avatarUrl}
         onOpenContact={() => setIsContactOpen(true)}
       />
 
       <main>
         {/* Editorial Hero Banner */}
-        <Hero onScrollToCaseStudy={handleScrollToCaseStudy} />
+        <Hero
+          avatarUrl={avatarUrl}
+          onAvatarChange={handleAvatarChange}
+          onResetAvatar={handleResetAvatar}
+          onScrollToCaseStudy={handleScrollToCaseStudy}
+        />
 
         {/* Case Studies Category / Quick Jump Filter Bar */}
         <section className="bg-white border-b border-stone-200 py-4 sticky top-16 sm:top-20 z-30 shadow-2xs">
